@@ -1,0 +1,31 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity pwm is
+	generic (pw_ratio:integer:=255);
+	port (
+	slowclk: in std_logic;
+	output: out std_logic);	
+end pwm;
+
+
+architecture pw_mod of pwm is
+begin
+	process (slowclk)
+		variable sum : integer range 0 to pw_ratio;
+		
+	begin
+
+		if rising_edge(slowclk)then	
+			count2 := count2 + 1;
+			if count2 < pw_ratio/2 then
+				output <= '0';
+			elsif count2 < pw_ratio then	
+				output <= '1';
+			else count2 := 0;
+			end if;		
+		end if;
+end process;
+end pw_mod;
+ 

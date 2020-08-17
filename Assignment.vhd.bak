@@ -1,0 +1,30 @@
+
+-- VHDL implementation of a 
+-- Switches and 7 segment
+
+
+-- Title:			Assignment.vhd
+--	Designer:		Abdul Kozbar
+--	Version No:		4
+--	Target			DE2 board - EP4CE115F29C7
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity Assignment is port (
+        x: in integer range 0 to 256; 
+		  p,q,r: out integer range 0 to 15;
+		  result_remainder: integer 0 to 15; 
+		  
+		  
+end Assignment;
+
+architecture gates of Assignment is
+begin 
+		p<= x rem 10
+		q<= x/10
+		r<= p2 rem 10 
+		
+end gates; 
